@@ -1,6 +1,6 @@
-**Date**<br>
-**Course Code & Course Name**<br>
-**Student's First Name & Last Name**<br>
+**Date**<br>17/10/2024
+**Course Code & Course Name**<br>MPAD 2003-A INTRODUCTION TO DATA STORYTELLING
+**Student's First Name & Last Name**<br>Fedja Osmanovic
 **Presented to Jean-Sébastien Marier**<br>
 
 # Midterm Project: Exploratory Data Analysis (EDA)
