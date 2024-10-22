@@ -1,6 +1,6 @@
-**Date**<br>17/10/2024
-**Course Code & Course Name**<br>MPAD 2003-A INTRODUCTION TO DATA STORYTELLING
-**Student's First Name & Last Name**<br>Fedja Osmanovic
+**17/10/2024**<br>
+**MPAD 2003-A INTRODUCTION TO DATA STORYTELLING**<br>
+**Fedja Osmanovic**<br>
 **Presented to Jean-Sébastien Marier**<br>
 
 # Midterm Project: Exploratory Data Analysis (EDA)
@@ -24,7 +24,13 @@ And to create an unordered list, we simply put a star (`*`) before each item.
 
 ## 1. Introduction
 
-Insert text here.
+This assignment will analyze a subset from the City of Ottawa’s 2024 Service Requests dataset. The dataset contains information regarding the service requests made by Ottawa residents, and range from maintenance issues, to public concerns recorded through the month of August. The data was collected by the City of Ottawa's public service departments and made available through the city’s open data portal.
+
+The dataset analyzed has been cut down from 251,714 and filtered to only use cases from August to make it more manageable for this project. This subset will be used to explore service trends and identify potential stories within the data. My analysis will involve data cleaning, exploration, and visualization to provide insights into the types of service requests, their frequency, and patterns across different categories.
+
+Open Ottawa Dataset: [Link](https://open.ottawa.ca/documents/65fe42e2502d442b8a774fd3d954cac5/about)
+
+Github CSV: [Link](https://raw.githubusercontent.com/jsmarier/course-datasets/refs/heads/main/ottawa-311-service-requests-august-2024.csv)
 
 ## 2. Getting Data
 
