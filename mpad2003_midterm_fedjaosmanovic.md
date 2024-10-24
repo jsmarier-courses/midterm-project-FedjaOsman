@@ -61,31 +61,84 @@ We can note that in Column B, the dataset uses nominal variables to denote the `
 
 The S`ervice Request ID` (Column A) variable is discrete. A unique numeric identifier for each service request that cannot be further broken down. `Longitude` (Column I), and `Latitude` (Column H) are indiscreet variables as there is an infinite set of possible values. 
 
-Important ordinal variables are also present. Recorded through `Date Opened` (Column E), and `Date Closed` (Column F) in regards to the Service Request.
+Important ordinal variables are also present. Recorded through `Opened Date` (Column E), and `Closed Date` (Column F) in regards to the Service Request.
 
 ### Hypothosis
 
 * Service Request resolution time varies by request Type.
 * The number of canceled Service Requests is higher for certain types of requests.
-* The day of the week plays role in frequency of Service Requests made. 
+* The day of the week plays a role in the frequency of Service Requests made. 
 
 ## 3. Understanding Data
 
 ### 3.1. VIMO Analysis
 
-Use three hashtag symbols (`###`) to create a level 3 heading like this one. Please follow this template when it comes to level 1 and level 2 headings. However, you can use level 3 headings as you see fit.
+**Valid**<br>
+The Status values are all completely valid, and contain only expected categories (Resolved, Active, or Canceled). Every entry under this column fits into one of these nominal categories. 
+This can be checked by counting and summing up each instance of the three expected categories and verifying it adds up to 28,538.
+```
+=COUNTIF(range, criterion)
+```
+And then 
+```
+=SUM(range of previous countifs)
+```
 
-Insert text here.
+Additionally, the `Opened Date` column's values all range logically from the start of August to the first of September, falling within the expected boundary of this dataset's sample.
+Checking whether or not an entry is a date can be done with the `ISDATE()` function.
+```
+=ISDATE(E2:E)
+```
+If any of the 'dates' under `Opened Date` were invalid, False would be returned.
+Same applies for `Closed Date`, however it cannot be performed here as some requests are still ongoing.
+<br>
 
-Support your claims by citing relevant sources. Please follow [APA guidelines for in-text citations](https://apastyle.apa.org/style-grammar-guidelines/citations).
+**Invalid**<br>
+Some cells under the wards column lack any real value, or are not recorded which is outside of the expected entries. Likewise, some addresses along with their longitude and latitude hold invalid values<br>
+
+**Missing**<br>
+There are few notable instances where missing data comes up. The first of which being in the `Closed Date` column.
+The `Closed Date` column has 3,020 missing values. However, these missing values align with the number of `Active` cases. This makes sense as they wouldn’t have a closing date, effectively excusing them as ‘missing’.
+<br>By using:
+```
+=COUNTIF(B2:B, "Active")
+```
+And comparing to:
+```
+=COUNTIF(F2:F, "\N")
+```
+ We check to see if the same two numbers are returned.
+ *They both return 3,020.*<br>
+
+<br>
+
+**Outliers**<br>
+asd<br>
+
+!!!!!!!!!!!!!!!!!Support your claims by citing relevant sources. Please follow [APA guidelines for in-text citations](https://apastyle.apa.org/style-grammar-guidelines/citations).
 
 **For example:**
 
 As Cairo (2016) argues, a data visualization should be truthful...
 
 ### 3.2. Cleaning Data
+![](Screenshot2.png)
+*Cleaned Dataset after below mentioned changes*
 
-Insert text here.
+Though the data itself is valid, it appears very clustered when presented as is on the spreadsheet. 
+To begin with cleaning I used Sheet's built in Data cleanup under `Data > Data cleanup > Trim whitespaces` to, as suggested, trim any whitespaces. 
+On top of this, under `Data > Data cleanup > Remove duplicates` to remove any potential duplicate IDs and their rows under the Service Request ID column. 
+This will ensure integrity of any observations drawn from the dataset as each unique entry will not be counted more than once. 
+Next, I wanted to shorten the length of data shown in each cell under description as they are very lengthy including both French and English. 
+To do this I created two new columns right of the description and used the split function: 
+```
+[=SPLIT(D2, “|”)]
+```
+This separates the English and French strings into two different columns.
+To preserve the data, but remove it from sight without being destructive, I simply hid the original column, and the French since I’m working in English.
+Additionally the row of categories was frozen along the top of the sheet so as to not have to go up to the top of the long dataset for a reminder of what belongs under which category.
+I also hid the address, longitude, and latitude columns as they won’t be necessary at the moment.
+
 
 ### 3.3. Exploratory Data Analysis (EDA)
 
