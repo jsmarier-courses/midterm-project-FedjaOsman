@@ -5,8 +5,6 @@
 
 # Midterm Project: Exploratory Data Analysis (EDA)
 
-Use one hashtag symbol (`#`) to create a level 1 heading like this one.
-
 ## Foreword
 
 For this assignment, you must extract data from a dataset provided by the instructor. You must then clean and analyze the data, create exploratory charts/visualizations, and find a potential story idea. Your assignment must clearly detail your process. You are expected to write about 1500-2000 words, and to include several screen captures showing the different steps you went through. Your assignment must be written with the Markdown format and submitted on GitHub Classroom.
@@ -49,7 +47,7 @@ To directly import, once a google sheet is created:
 
 Here is the result:
 ![](Screenshot1.png)<br>
-*Figure 1: The Google Sheet after file import. Accessible here: [Link](https://docs.google.com/spreadsheets/d/1DZ_8WAwUQt81wDHo3FmGwdme0gsA9-wrkjvgRc454_k/edit?usp=sharing)*
+*Figure 1: The Google Sheet after file import. Accessible here: [Link](https://docs.google.com/spreadsheets/d/1DZ_8WAwUQt81wDHo3FmGwdme0gsA9-wrkjvgRc454_k/edit?usp=sharing).*
 <br>
 
 Regarding this spreadsheet, it contains 28,538 rows and 11 columns. <br>
@@ -123,7 +121,7 @@ As Cairo (2016) argues, a data visualization should be truthful...
 
 ### 3.2. Cleaning Data
 ![](Screenshot2.png)
-*Cleaned Dataset after below mentioned changes*
+*Figure 2: Cleaned Dataset after below mentioned changes.*
 
 Though the data itself is valid, it appears very clustered when presented as is on the spreadsheet. 
 To begin with cleaning I used Sheet's built in Data cleanup under `Data > Data cleanup > Trim whitespaces` to, as suggested, trim any whitespaces. 
@@ -142,17 +140,37 @@ I also hid the address, longitude, and latitude columns as they won’t be neces
 
 ### 3.3. Exploratory Data Analysis (EDA)
 
-Insert text here.
+Beginning my exploratory data analysis I chose to address my first hypothesis: Service Request resolution time varies by request Type. 
 
-**This section should include a screen capture of your pivot table, like so:**
+To do this I made a new column to count how long each request took to be resolved in days. Request Type categorizes the services, while Resolution Time quantifies how long it took to resolve each case.
 
-![](pivot-table-screen-capture.png)<br>
-*Figure 2: This pivot table shows...*
+![](screenshot3.png)
+*Figure 3: Formula for finding difference between Opened and Closed Date.*
 
-**This section should also include a screen capture of your exploratory chart, like so:**
+Using the formula:
+```
+=IF(H2="\N", "\N", H2 - G2)
+```
+This gives us for each Service Request how many days it took to resolve it, while accounting for cases yet to be resolved.
+From here I used a  pivot table to calculate the average amount of time it took for each different type of service request to be resolved.
 
-![](chart-screen-capture.png)<br>
-*Figure 3: This exploratory chart shows...*
+![](screenshot4.png)
+*Figure 4: This pivot table shows the average amount of days taken to resolve each request type, and its setup.*
+
+In the pivot table’s settings, choosing Request Type as the rows and then adding the value to be the average of days taken to resolve. Formatting the value to 2 decimal places.
+
+#### Notable Statistics:
+
+![](screenshot5.png)
+*Figure 5: This chart shows the relation between average days taken to resolve and request types.*
+
+Social Community Service requests have the longest average resolution time (13.18 days), standing out significantly compared to other types.
+Parking Control Enforcement requests are resolved extremely quickly, with an average of only 0.41 days.
+Health and Safety and Garbage and Recycling are resolved fairly quickly (4.94 and 5.72 days on average).
+
+The data shows a clear variation in resolution times depending on the type of service request. Some types, such as Social Community Service, seem to take much longer to resolve, while others, like Parking Control Enforcement, are handled almost immediately. This could reflect the complexity or priority of different service requests. The story here could revolve around the efficiency and prioritization of different city services. Standing out, why are some services resolved almost immediately, while others take upwards of a week?
+
+This could potentially further be explored by analyzing the ward in which service requests are made, as well as comparing resolution times to their respective wards. Analyzing frequency in wards, alongside the request type would allow us to identify potential patterns in service requests and resolution efficiency across different areas of the city. Additionally, comparing the average resolution times between wards can reveal disparities in how quickly services are being provided across the city. For instance, some wards may experience quicker response times due to higher resource allocation
 
 ## 4. Potential Story
 
