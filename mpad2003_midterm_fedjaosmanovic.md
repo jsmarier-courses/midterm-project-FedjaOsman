@@ -57,7 +57,7 @@ Overall, the data appears to be relatively clean. However a numerous number of e
 
 We can note that in Column B, the dataset uses nominal variables to denote the `Status` of any given request; Active, Resolved, or Canceled. Likewise, the `Type` (Column C), `Description` (Column D), and `Address` (Column G), too are nominal. 
 
-The S`ervice Request ID` (Column A) variable is discrete. A unique numeric identifier for each service request that cannot be further broken down. `Longitude` (Column I), and `Latitude` (Column H) are indiscreet variables as there is an infinite set of possible values. 
+The `Service Request ID` (Column A) variable is discrete. A unique numeric identifier for each service request that cannot be further broken down. `Longitude` (Column I), and `Latitude` (Column H) are indiscreet variables as there is an infinite set of possible values. 
 
 Important ordinal variables are also present. Recorded through `Opened Date` (Column E), and `Closed Date` (Column F) in regards to the Service Request.
 
@@ -108,19 +108,9 @@ And comparing to:
  We check to see if the same two numbers are returned.
  *They both return 3,020.*<br>
 
-<br>
-
-**Outliers**<br>
-asd<br>
-
-!!!!!!!!!!!!!!!!!Support your claims by citing relevant sources. Please follow [APA guidelines for in-text citations](https://apastyle.apa.org/style-grammar-guidelines/citations).
-
-**For example:**
-
-As Cairo (2016) argues, a data visualization should be truthful...
 
 ### 3.2. Cleaning Data
-![](Screenshot2.png)
+![](Screenshot2.png)<br>
 *Figure 2: Cleaned Dataset after below mentioned changes.*
 
 Though the data itself is valid, it appears very clustered when presented as is on the spreadsheet. 
@@ -143,8 +133,8 @@ I also hid the address, longitude, and latitude columns as they won’t be neces
 Beginning my exploratory data analysis I chose to address my first hypothesis: Service Request resolution time varies by request Type. 
 
 To do this I made a new column to count how long each request took to be resolved in days. Request Type categorizes the services, while Resolution Time quantifies how long it took to resolve each case.
-
-![](screenshot3.png)
+These variables are needed to directly explore the hypothesis.
+![](screenshot3.png)<br>
 *Figure 3: Formula for finding difference between Opened and Closed Date.*
 
 Using the formula:
@@ -154,7 +144,7 @@ Using the formula:
 This gives us for each Service Request how many days it took to resolve it, while accounting for cases yet to be resolved.
 From here I used a  pivot table to calculate the average amount of time it took for each different type of service request to be resolved.
 
-![](screenshot4.png)
+![](screenshot4.png)<br>
 *Figure 4: This pivot table shows the average amount of days taken to resolve each request type, and its setup.*
 
 In the pivot table’s settings, choosing Request Type as the rows and then adding the value to be the average of days taken to resolve. Formatting the value to 2 decimal places.
@@ -174,11 +164,30 @@ This could potentially further be explored by analyzing the ward in which servic
 
 ## 4. Potential Story
 
-Insert text here.
+![](Screenshot6.png)<br>
+*Figure 6: Average time taken to resolve issue by Ward*
+
+![](Screenshot7.png)<br>
+*Figure 7: Requests per Ward*
+
+We could further explore the potential disparities in service delivery across different wards, focusing on how certain areas of the city may experience slower response times. Maybe due to a lack of resources, staff shortages, or higher demands. To tell this story, I’d  need more detailed data like budget and resource allocation for each ward, as well as population density. This would help reveal whether wealthier or more populated wards receive faster service compared to others.
+
+
+Ideally, interviews with city councilors from different wards could shed light on their respective local challenges. Speaking to city department heads responsible for managing services like Roads and Transportation, Garbage and Recycling, and Bylaw Services could also provide insight into differences in resource allocation. 
+
+
+In one article on CTVNews the Rural Summit announcement emphasizes that 80% of Ottawa is rural, yet rural communities often feel overlooked in terms of services. One of the key concerns raised at the summit was the lack of resources and attention given to rural wards compared to urban ones. A West Carleton resident noting “We don’t have a large population, but we have a large rural area by landmass, but as a result, we’re not really being focused on,”(CTVNews, 2024). Following up with the same article I think it would be good to interview councillors like David Brown or Clarke Kelly, who spoke about how rural areas need different service strategies. They’d provide valuable perspectives. These representatives could explain any historical challenges rural wards faced in receiving services, such as delayed responses to garbage collection or road maintenance. 
+
+
 
 ## 5. Conclusion
 
-Insert text here.
+Going into this assignment I felt a little intimidated. I knew it was key to have the data organized, so that’s where I wanted to start. Though, I never really enjoyed dealing with data and spreadsheets, and then this one seemingly large to my perspective was overwhelming. However, with everything we’ve been learning, and then having a chance to sit down and wrangle with the data myself, everything ended up being fine, satisfying even. I grew much more comfortable with traversing it and finding what I needed within it.
+
+
+In terms of challenge the most difficult part was probably setting up the first pivot table. It was the thing I was most unfamiliar with, and I had to go back to refresh myself on how to use them. If we’re not counting the familiarization of pivot tables, by far the most rewarding part of dealing with that data was watching each cell fill with the appropriate data after executing a function, and not being an error or invalid value, put together with then using this data.   
+
+
 
 ## 6. References
 
